@@ -10,14 +10,10 @@ const api = axios.create({
 })
 
 app.get('/show/:id', (req, res, next) => {
-
-        var countryUrl = req.params.id 
-
-    api.get(`/countries/${countryUrl}/confirmed`).then((response) => {
-        
-        res.json(response.data)
+      var countryUrl = req.params.id 
+    api.get(`/countries/${countryUrl}/confirmed`).then((response) => {  
+      res.json(response.data)
     })
-    
 })
  
 var server = http.createServer(app); 
