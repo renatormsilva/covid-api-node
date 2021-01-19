@@ -1,0 +1,52 @@
+var http = require('http'); 
+const express = require('express');
+const app = express();
+const axios = require("axios");
+
+const api = axios.create({
+    baseURL: "https://covid19.mathdro.id/api"
+})
+
+
+
+app.use(require("cors")());
+
+
+
+app.get('/show', (req, res, next) => {
+
+    var countryData = api.get(`countries/br/confirmed`).then((response) => {
+        response.data
+    })
+    console.log(countryData)
+    res.json(countryData)
+
+})
+ 
+app.get('/estados', (req, res, next) => { 
+    console.log("Retornou todos estados!");
+    const ufs = [
+        {id:1,uf:'RS'},{id:2,uf:'SC'},{id:3,uf:'PR'}// coloque os demais estados
+    ]
+    res.json(ufs);
+}) 
+ 
+var server = http.createServer(app); 
+server.listen(3040);
+console.log("Servidor escutando na porta 3030...")
+
+// api.get(`countries/${result}/confirmed`).then((response) => {
+//         setLocation(response.data[2].countryRegion)
+//     })
+
+
+// {cases.map((caso) => (
+//             <tr key={caso.uid}>
+//                 <td data-heading="Country">{caso.countryRegion}</td>
+//                 <td data-heading="City">{caso.provinceState}</td>
+//                 <td data-heading="Confirmed cases">{caso.confirmed}</td>
+//                 <td data-heading="Active cases">{caso.active}</td>
+//                 <td data-heading="Deaths">{caso.deaths}</td>
+//                 <td data-heading="Recovered">{caso.recovered}</td>
+//           </tr>    
+          //))}
