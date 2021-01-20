@@ -17,5 +17,5 @@ app.get('/show/:id', (req, res, next) => {
 })
  
 var server = http.createServer(app); 
-server.listen(3030);
+server.listen(3050);
 console.log("Servidor escutando ")
