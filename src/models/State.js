@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 
-class Country extends Model {
+class State extends Model {
   static init(sequelize) {
     super.init({
       uid: DataTypes.INTEGER,
-      country_region: DataTypes.STRING,
-      province_state: DataTypes.STRING,
+      countryRegion: DataTypes.STRING,
+      provinceState: DataTypes.STRING,
       confirmed: DataTypes.INTEGER,
       active: DataTypes.INTEGER,
       deaths: DataTypes.INTEGER,
@@ -17,4 +17,4 @@ class Country extends Model {
   }
 }
 
-module.exports = Country
+module.exports = State

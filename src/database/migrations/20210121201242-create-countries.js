@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     
-    return queryInterface.createTable('countries', 
+    return queryInterface.createTable('States', 
     {
        id: {
          type: Sequelize.INTEGER,
@@ -16,12 +16,13 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      country_region: {
+      countryRegion: {
          type: Sequelize.STRING,
-         allowNull: false
+         allowNull: false,
+         
         
        },
-       province_state: {
+       provinceState: {
          type: Sequelize.STRING,
          allowNull: false
         
@@ -46,11 +47,11 @@ module.exports = {
          allowNull: false
         
        },
-       created_at: {
+       createdAt: {
          type: Sequelize.DATE,
          allowNull: false,
        },
-       updated_at: {
+       updatedAt: {
          type: Sequelize.DATE,
          allowNull: false,
        }
@@ -62,7 +63,7 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     
-    return queryInterface.dropTable('countries');
+    return queryInterface.dropTable('Countries');
      
   }
 };

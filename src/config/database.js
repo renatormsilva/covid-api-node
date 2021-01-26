@@ -6,6 +6,6 @@ module.exports = {
   database: 'db_contry_list',
   define: {
     timestamps: true,
-    underscored: true,
+    
   }
 }
