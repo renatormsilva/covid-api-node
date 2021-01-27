@@ -9,7 +9,6 @@ routes.post('/show')
 
 
 routes.get("/db/:id", StateController.index);
-routes.post("/db/:id", StateController.store);
 
 
 
